@@ -634,3 +634,5 @@ C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\ob
 C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\Memorizando.pdb
 C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\serviceworkers\wwwroot\service-worker.js
 C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\service-worker-assets.js
+C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\RazorDeclaration\Pages\JuegoLetras.razor.g.cs
+C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\Razor\Pages\JuegoLetras.razor.g.cs
