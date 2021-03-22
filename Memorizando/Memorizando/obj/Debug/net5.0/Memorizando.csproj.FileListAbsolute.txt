@@ -635,3 +635,6 @@ C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\ob
 C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\service-worker-assets.js
 C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\RazorDeclaration\Pages\JuegoPPT.razor.g.cs
 C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\Razor\Pages\JuegoPPT.razor.g.cs
+C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\Memorizando.csprojAssemblyReference.cache
+C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\RazorDeclaration\Pages\JuegoMemoria.razor.g.cs
+C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\Razor\Pages\JuegoMemoria.razor.g.cs

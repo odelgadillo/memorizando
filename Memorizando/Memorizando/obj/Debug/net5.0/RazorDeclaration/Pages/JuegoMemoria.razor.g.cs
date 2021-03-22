@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace Memorizando.Shared
+namespace Memorizando.Pages
 {
     #line hidden
     using System;
@@ -82,7 +82,15 @@ using Memorizando.Shared;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 2 "C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\Pages\JuegoMemoria.razor"
+using System.Timers;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/JuegoMemoria")]
+    public partial class JuegoMemoria : Microsoft.AspNetCore.Components.ComponentBase, IDisposable
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -90,15 +98,68 @@ using Memorizando.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 38 "C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\Shared\NavMenu.razor"
+#line 33 "C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\Pages\JuegoMemoria.razor"
        
-    private bool collapseNavMenu = true;
+    Timer timer;
+    string palabra = string.Empty;
+    int nivel = 3;
+    string letraSeleccionada = string.Empty;
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
+    List<char> letras = new List<char>();
+    private void CargarLetras()
     {
-        collapseNavMenu = !collapseNavMenu;
+        for (int i = 0; i < 26; i++)
+        {
+            char letra = (char)('a' + i);
+            letras.Add(letra);
+        }
+    }
+
+    private void SeleccionarLetra(char letra)
+    {
+        letraSeleccionada = letra.ToString();
+    }
+
+    protected override void OnInitialized()
+    {
+        CargarLetras();
+        timer = new Timer();
+        timer.Interval = 500; // cada segundo
+        timer.Elapsed += TimerOnElapsed; // ejecutar este método
+        timer.Start();
+    }
+
+    private void TimerOnElapsed(object sender, ElapsedEventArgs e)
+    {
+        //Console.WriteLine(RandomLetter.GetLetter());
+        palabra += RandomLetter.GetLetter();
+        Console.WriteLine(palabra);
+        if (palabra.Count() == nivel)
+        {
+            timer.Stop();
+        }
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        if (timer != null)
+        {
+            timer.Dispose();
+        }
+    }
+
+    static class RandomLetter
+    {
+        static Random _random = new Random();
+        public static char GetLetter()
+        {
+            // This method returns a random lowercase letter.
+            // ... Between 'a' and 'z' inclusize.
+            int num = _random.Next(0, 26); // Zero to 25
+            char let = (char)('a' + num);
+            return let;
+        }
     }
 
 #line default

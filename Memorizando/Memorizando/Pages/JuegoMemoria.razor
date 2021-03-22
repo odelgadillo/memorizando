@@ -1,0 +1,95 @@
+﻿@page "/JuegoMemoria"
+@using System.Timers
+@implements IDisposable
+
+<h3>JuegoMemoria</h3>
+
+@foreach (var letra in palabra)
+{
+    <div class="letra border text-uppercase">
+        <span>@letra</span>
+    </div>
+}
+<hr />
+
+@foreach (var letra in palabra)
+{
+    <div class="letra border text-uppercase">
+        <input type="text" name="@letra" value="" class="text-uppercase" />
+    </div>
+}
+
+<hr />
+<h5>@letraSeleccionada</h5>
+<hr />
+<!-- #region Dibujar teclado -->
+@foreach (var letra in letras)
+{
+    <input type="button" name="btn-@letra" value="@letra" @onclick="@(() =>SeleccionarLetra(letra))" class="text-uppercase btn btn-secondary botonLetra m-1" />
+}
+
+<!-- #endregion -->
+
+@code {
+    Timer timer;
+    string palabra = string.Empty;
+    int nivel = 3;
+    string letraSeleccionada = string.Empty;
+
+    List<char> letras = new List<char>();
+    private void CargarLetras()
+    {
+        for (int i = 0; i < 26; i++)
+        {
+            char letra = (char)('a' + i);
+            letras.Add(letra);
+        }
+    }
+
+    private void SeleccionarLetra(char letra)
+    {
+        letraSeleccionada = letra.ToString();
+    }
+
+    protected override void OnInitialized()
+    {
+        CargarLetras();
+        timer = new Timer();
+        timer.Interval = 500; // cada segundo
+        timer.Elapsed += TimerOnElapsed; // ejecutar este método
+        timer.Start();
+    }
+
+    private void TimerOnElapsed(object sender, ElapsedEventArgs e)
+    {
+        //Console.WriteLine(RandomLetter.GetLetter());
+        palabra += RandomLetter.GetLetter();
+        Console.WriteLine(palabra);
+        if (palabra.Count() == nivel)
+        {
+            timer.Stop();
+        }
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        if (timer != null)
+        {
+            timer.Dispose();
+        }
+    }
+
+    static class RandomLetter
+    {
+        static Random _random = new Random();
+        public static char GetLetter()
+        {
+            // This method returns a random lowercase letter.
+            // ... Between 'a' and 'z' inclusize.
+            int num = _random.Next(0, 26); // Zero to 25
+            char let = (char)('a' + num);
+            return let;
+        }
+    }
+}
