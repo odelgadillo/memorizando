@@ -48,3 +48,25 @@ a, .btn-link {
         right: 0.75rem;
         top: 0.5rem;
     }
+
+.opciones-oponente {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.opciones-jugador {
+    display: flex;
+    justify-content: space-around
+}
+
+.imagen {
+    width: 200px;
+    height: 200px;
+    transition: all .2s ease-in-out;
+}
+
+.imagen-seleccionable:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}

@@ -1,7 +1,7 @@
 ﻿self.assetsManifest = {
   "assets": [
     {
-      "hash": "sha256-GsGX8zuoCQU0RxcI4ppEWYanFPKPG1FNtdQauyAaEiU=",
+      "hash": "sha256-tQHDvqx9o+6ZCkUKDg9ATvEwYf6Agg31c1xhbx681fQ=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -785,11 +785,11 @@
       "url": "_framework\/dotnet.5.0.0.js"
     },
     {
-      "hash": "sha256-mMOZO0UhucC5JFVHdWzsNo\/mTzYcwEx7mT5GjYR6w\/o=",
+      "hash": "sha256-BfYJQPODul35BHrNBvKImT9tMtA\/hb6PmMBIio5IS0E=",
       "url": "_framework\/Memorizando.dll"
     },
     {
-      "hash": "sha256-wa1BdsZhcR7LW815kYGtz\/jkd61NqY0vo6u2JfE2pvU=",
+      "hash": "sha256-Ubb89xK5Gk3Jnb7UmM1PSRhobMz\/Q0XpLrO\/mrjeLk0=",
       "url": "_framework\/Memorizando.pdb"
     },
     {
@@ -1577,7 +1577,7 @@
       "url": "_framework\/dotnet.5.0.0.js.gz"
     },
     {
-      "hash": "sha256-8aM9R9K90X6h+KPDW4OzrEh071mAs7dvAQxjBxAZQAc=",
+      "hash": "sha256-4prtFcNRVTmkj3A5UCx9UCag16BWo9cqUybZ\/Zjk7lc=",
       "url": "css\/app.css"
     },
     {
@@ -1641,8 +1641,20 @@
       "url": "manifest.json"
     },
     {
+      "hash": "sha256-ZIBRfGKd86KojiBWCdOVcL9JmFQqpVpqGUWxiKRrhQU=",
+      "url": "papel.jpg"
+    },
+    {
+      "hash": "sha256-iCMedIZWxLyj\/18ypCBpKE+uLQzrH7fuq0u4033dD7M=",
+      "url": "piedra.jpg"
+    },
+    {
       "hash": "sha256-yzFf+O\/mlH+Q9klUSqXP2kxGKOUFLPxaww8da8fKhGU=",
       "url": "sample-data\/weather.json"
+    },
+    {
+      "hash": "sha256-VkatU57GAexCMXTkcuAzD0wuJefvYmc4czxL9gPPb5M=",
+      "url": "tijera.jpg"
     },
     {
       "hash": "sha256-XnnKrx9vzLhjjzHY\/XNtio+oJaw9Xk3UTl6v33mfFO8=",
@@ -1653,5 +1665,5 @@
       "url": "Memorizando.bundle.scp.css"
     }
   ],
-  "version": "HEN0HGfO"
+  "version": "d8xXX3Ps"
 };

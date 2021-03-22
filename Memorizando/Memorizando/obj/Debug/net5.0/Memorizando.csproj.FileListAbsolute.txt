@@ -398,7 +398,6 @@ C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\bi
 C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\bin\Debug\net5.0\wwwroot\_framework\icudt_EFIGS.dat
 C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\bin\Debug\net5.0\wwwroot\_framework\icudt_no_CJK.dat
 C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\bin\Debug\net5.0\wwwroot\_framework\dotnet.5.0.0.js
-C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\Memorizando.csprojAssemblyReference.cache
 C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\Memorizando.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\Memorizando.AssemblyInfoInputs.cache
 C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\Memorizando.AssemblyInfo.cs
@@ -634,5 +633,5 @@ C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\ob
 C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\Memorizando.pdb
 C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\serviceworkers\wwwroot\service-worker.js
 C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\service-worker-assets.js
-C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\RazorDeclaration\Pages\JuegoLetras.razor.g.cs
-C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\Razor\Pages\JuegoLetras.razor.g.cs
+C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\RazorDeclaration\Pages\JuegoPPT.razor.g.cs
+C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\obj\Debug\net5.0\Razor\Pages\JuegoPPT.razor.g.cs
