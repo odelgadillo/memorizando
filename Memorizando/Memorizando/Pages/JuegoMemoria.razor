@@ -4,40 +4,46 @@
 
 <h3>JuegoMemoria</h3>
 
-@foreach (var letra in palabra)
+@foreach (var letra in palabraRandom)
 {
-    <div class="letra border text-uppercase">
+    if (mostrarPalabra)
+    {
+        <div class="letra border text-uppercase">
+            <span>@letra</span>
+        </div>
+    }
+}
+<hr />
+
+@foreach (var letra in palabraUsuario)
+{
+    <div class="letra border text-uppercase disabled">
         <span>@letra</span>
     </div>
 }
-<hr />
 
-@foreach (var letra in palabra)
-{
-    <div class="letra border text-uppercase">
-        <input type="text" name="@letra" value="" class="text-uppercase" />
-    </div>
-}
-
-<hr />
-<h5>@letraSeleccionada</h5>
 <hr />
 <!-- #region Dibujar teclado -->
 @foreach (var letra in letras)
 {
     <input type="button" name="btn-@letra" value="@letra" @onclick="@(() =>SeleccionarLetra(letra))" class="text-uppercase btn btn-secondary botonLetra m-1" />
 }
+<input type="button" name="Submit" value="Go" class="btn btn-success" @onclick="@(() => ComprobarResultado())" />
 
 <!-- #endregion -->
 
 @code {
     Timer timer;
-    string palabra = string.Empty;
-    int nivel = 3;
+    const int nivelInicial = 3;
+    string palabraRandom = string.Empty;
+    int nivel = nivelInicial;
     string letraSeleccionada = string.Empty;
+    string palabraUsuario = string.Empty;
+    bool mostrarPalabra = true;
+    int tiempos = 0;
 
     List<char> letras = new List<char>();
-    private void CargarLetras()
+    private void CargarTeclado()
     {
         for (int i = 0; i < 26; i++)
         {
@@ -48,12 +54,29 @@
 
     private void SeleccionarLetra(char letra)
     {
-        letraSeleccionada = letra.ToString();
+        if (palabraUsuario.Count() < nivel)
+        {
+            palabraUsuario += letra.ToString();
+        }
+    }
+
+    private void ComprobarResultado()
+    {
+        if (palabraRandom == palabraUsuario)
+            nivel++;
+        else
+            nivel = nivelInicial;
+
+        timer.Start();
+        mostrarPalabra = true;
+        palabraUsuario = string.Empty;
+        palabraRandom = string.Empty;
+        tiempos = 0;
     }
 
     protected override void OnInitialized()
     {
-        CargarLetras();
+        CargarTeclado();
         timer = new Timer();
         timer.Interval = 500; // cada segundo
         timer.Elapsed += TimerOnElapsed; // ejecutar este método
@@ -62,12 +85,15 @@
 
     private void TimerOnElapsed(object sender, ElapsedEventArgs e)
     {
-        //Console.WriteLine(RandomLetter.GetLetter());
-        palabra += RandomLetter.GetLetter();
-        Console.WriteLine(palabra);
-        if (palabra.Count() == nivel)
+        tiempos++;
+
+        if (palabraRandom.Count() < nivel)
+            palabraRandom += RandomLetter.GetLetter();
+
+        if (tiempos > nivel)
         {
             timer.Stop();
+            mostrarPalabra = false;
         }
         StateHasChanged();
     }

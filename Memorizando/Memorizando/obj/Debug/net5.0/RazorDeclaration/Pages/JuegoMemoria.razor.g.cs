@@ -98,15 +98,19 @@ using System.Timers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 33 "C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\Pages\JuegoMemoria.razor"
+#line 35 "C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\Pages\JuegoMemoria.razor"
        
     Timer timer;
-    string palabra = string.Empty;
-    int nivel = 3;
+    const int nivelInicial = 3;
+    string palabraRandom = string.Empty;
+    int nivel = nivelInicial;
     string letraSeleccionada = string.Empty;
+    string palabraUsuario = string.Empty;
+    bool mostrarPalabra = true;
+    int tiempos = 0;
 
     List<char> letras = new List<char>();
-    private void CargarLetras()
+    private void CargarTeclado()
     {
         for (int i = 0; i < 26; i++)
         {
@@ -117,12 +121,29 @@ using System.Timers;
 
     private void SeleccionarLetra(char letra)
     {
-        letraSeleccionada = letra.ToString();
+        if (palabraUsuario.Count() < nivel)
+        {
+            palabraUsuario += letra.ToString();
+        }
+    }
+
+    private void ComprobarResultado()
+    {
+        if (palabraRandom == palabraUsuario)
+            nivel++;
+        else
+            nivel = nivelInicial;
+
+        timer.Start();
+        mostrarPalabra = true;
+        palabraUsuario = string.Empty;
+        palabraRandom = string.Empty;
+        tiempos = 0;
     }
 
     protected override void OnInitialized()
     {
-        CargarLetras();
+        CargarTeclado();
         timer = new Timer();
         timer.Interval = 500; // cada segundo
         timer.Elapsed += TimerOnElapsed; // ejecutar este método
@@ -131,12 +152,15 @@ using System.Timers;
 
     private void TimerOnElapsed(object sender, ElapsedEventArgs e)
     {
-        //Console.WriteLine(RandomLetter.GetLetter());
-        palabra += RandomLetter.GetLetter();
-        Console.WriteLine(palabra);
-        if (palabra.Count() == nivel)
+        tiempos++;
+
+        if (palabraRandom.Count() < nivel)
+            palabraRandom += RandomLetter.GetLetter();
+
+        if (tiempos > nivel)
         {
             timer.Stop();
+            mostrarPalabra = false;
         }
         StateHasChanged();
     }
