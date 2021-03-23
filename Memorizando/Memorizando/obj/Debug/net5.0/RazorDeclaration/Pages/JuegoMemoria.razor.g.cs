@@ -98,7 +98,7 @@ using System.Timers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 35 "C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\Pages\JuegoMemoria.razor"
+#line 48 "C:\Users\omarhdc\source\repos\odelgadillo\juegoLetras\Memorizando\Memorizando\Pages\JuegoMemoria.razor"
        
     Timer timer;
     const int nivelInicial = 3;

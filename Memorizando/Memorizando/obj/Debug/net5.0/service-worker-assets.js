@@ -1,7 +1,7 @@
 ﻿self.assetsManifest = {
   "assets": [
     {
-      "hash": "sha256-VnPu9Zej6QGSiAAPVsFOI\/N\/N3gKo41+gixAkU+nxNA=",
+      "hash": "sha256-6+46UlVL9AOqUIUXrpwY99bBTNASNS0tltIM7IHrmGs=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -785,11 +785,11 @@
       "url": "_framework\/dotnet.5.0.0.js"
     },
     {
-      "hash": "sha256-O6Qd8q3udI288BDmFpE2jocdjzf8P2d9+n7zVij8B4w=",
+      "hash": "sha256-6aSK3ZunwrsljQ9XXfE9j+7I+FAKSlBQDNxQoy0TqtE=",
       "url": "_framework\/Memorizando.dll"
     },
     {
-      "hash": "sha256-2gG4gETYUnwzWQ2jZe\/UQc+I09bAnhUfkBNOxvIfWF4=",
+      "hash": "sha256-5ICxTJcnzUBhNIs8rK3PmGqI3Q+WglSa0WzLwwrKdGY=",
       "url": "_framework\/Memorizando.pdb"
     },
     {
@@ -1665,5 +1665,5 @@
       "url": "Memorizando.bundle.scp.css"
     }
   ],
-  "version": "m0gup3Ng"
+  "version": "PuNeQSwK"
 };
