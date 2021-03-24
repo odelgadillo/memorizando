@@ -2,48 +2,48 @@
 @using System.Timers
 @implements IDisposable
 
-<h3>JuegoMemoria</h3>
 
-@foreach (var letra in palabraRandom)
-{
-    if (mostrarPalabra)
-    {
-        <div class="letra border text-uppercase">
-            <span>@letra</span>
+<div class="row">
+    <div class="col-md-8 col-lg-6 mx-auto lead">
+        <h3>
+            JuegoMemoria
+            <span class="badge badge-secondary">Nivel @(nivel-2)</span>
+        </h3>
+
+
+        <div class="contenedorLetra">
+            <!-- #region Palabra random -->
+            @foreach (var letra in palabraRandom)
+            {
+                if (mostrarPalabra)
+                {
+                    <div class="letra border text-uppercase">
+                        <span>@letra</span>
+                    </div>
+                }
+            }
+            <!-- #endregion -->
+            <!-- #region Palabra usuario -->
+            @foreach (var letra in palabraUsuario)
+            {
+                <div class="letra border text-uppercase">
+                    <span>@letra</span>
+                </div>
+            }
+            <!-- #endregion -->
         </div>
-    }
-}
-<hr />
 
-<div>
-    <div class="letra border text-uppercase"><span>a</span></div>
-    <div class="letra border text-uppercase"><span>b</span></div>
-    <div class="letra border text-uppercase"><span>c</span></div>
-    <div class="letra border text-uppercase"><span>d</span></div>
-    <div class="letra border text-uppercase"><span>e</span></div>
-    <div class="letra border text-uppercase"><span>f</span></div>
-    <div class="letra border text-uppercase"><span>g</span></div>
-    <div class="letra border text-uppercase"><span>h</span></div>
-    <div class="letra border text-uppercase"><span>i</span></div>
-    <div class="letra border text-uppercase"><span>j</span></div>
+        <hr />
+        <!-- #region Dibujar teclado -->
+        @foreach (var letra in letras)
+        {
+            <input type="button" name="btn-@letra" value="@letra" @onclick="@(() =>SeleccionarLetra(letra))" class="text-uppercase btn btn-secondary botonLetra m-1" />
+        }
+        <!-- #endregion -->
+        <input type="button" name="Submit" value="Go" class="btn btn-success" @onclick="@(() => ComprobarResultado())" />
+    </div>
 </div>
 
-@foreach (var letra in palabraUsuario)
-{
-    <div class="letra border text-uppercase disabled">
-        <span>@letra</span>
-    </div>
-}
-
-<hr />
-<!-- #region Dibujar teclado -->
-@foreach (var letra in letras)
-{
-    <input type="button" name="btn-@letra" value="@letra" @onclick="@(() =>SeleccionarLetra(letra))" class="text-uppercase btn btn-secondary botonLetra m-1" />
-}
-<input type="button" name="Submit" value="Go" class="btn btn-success" @onclick="@(() => ComprobarResultado())" />
-
-<!-- #endregion -->
 
 @code {
     Timer timer;

@@ -1,7 +1,7 @@
 ﻿self.assetsManifest = {
   "assets": [
     {
-      "hash": "sha256-6+46UlVL9AOqUIUXrpwY99bBTNASNS0tltIM7IHrmGs=",
+      "hash": "sha256-3wCDH4mznR1qM3ZTl+LGFtzF5nctmIdcYk29zSByxZs=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -785,11 +785,11 @@
       "url": "_framework\/dotnet.5.0.0.js"
     },
     {
-      "hash": "sha256-6aSK3ZunwrsljQ9XXfE9j+7I+FAKSlBQDNxQoy0TqtE=",
+      "hash": "sha256-OlZyxpefdmuOwWNUgQo8NhqdwxstFk79\/XyftKuexkI=",
       "url": "_framework\/Memorizando.dll"
     },
     {
-      "hash": "sha256-5ICxTJcnzUBhNIs8rK3PmGqI3Q+WglSa0WzLwwrKdGY=",
+      "hash": "sha256-VvP+M95WtOCpHEMp6S2nhN8P6dvUT+Uo7g7hP\/Caa\/M=",
       "url": "_framework\/Memorizando.pdb"
     },
     {
@@ -1577,7 +1577,7 @@
       "url": "_framework\/dotnet.5.0.0.js.gz"
     },
     {
-      "hash": "sha256-7yTLfOYKg+1uyXfWqqzw1h7kEe95gMykp4iWl29nkdk=",
+      "hash": "sha256-dzLnO9AxTx1Ip4CzRZ7AU8sgdIpeZiq6t1ipWpBJ86k=",
       "url": "css\/app.css"
     },
     {
@@ -1665,5 +1665,5 @@
       "url": "Memorizando.bundle.scp.css"
     }
   ],
-  "version": "PuNeQSwK"
+  "version": "DampZW8g"
 };
