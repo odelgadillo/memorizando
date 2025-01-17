@@ -26,6 +26,8 @@ function generateKeyboard() {
     alphabet.split('').forEach(letter => {
         const key = document.createElement('div');
         key.className = 'key';
+        key.classList.add('btn');
+        key.classList.add('btn-outline-secondary');
         key.textContent = letter;
         key.onclick = () => handleKeyPress(letter);
         keyboard.appendChild(key);
