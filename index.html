@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Letras</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <div id="welcome" class="section active">
+        <h1>¡Bienvenido al Juego de Memorización de Letras!</h1>
+        <p>Demuestra tu habilidad para recordar letras.</p>
+        <button onclick="showSection('instructions')">Instrucciones</button>
+        <button onclick="startGame()">Iniciar Juego</button>
+    </div>
+
+    <div id="instructions" class="section">
+        <h2>Instrucciones</h2>
+        <ul>
+            <li>Se mostrarán letras de forma secuencial. Memorízalas en el orden presentado.</li>
+            <li>Una vez desaparezcan, utiliza el teclado para ingresarlas en el mismo orden.</li>
+            <li>Si aciertas, avanzarás al siguiente nivel, con una letra más para memorizar.</li>
+            <li>Si fallas, el juego se reiniciará desde el nivel 3.</li>
+        </ul>
+        <button onclick="showSection('welcome')">Volver</button>
+    </div>
+
+    <div id="game" class="section">
+        <h2>¡Memoriza las letras!</h2>
+        <div class="game-boxes" id="gameBoxes">
+            <!-- Cuadros de letras -->
+        </div>
+        <div class="keyboard" id="keyboard">
+            <!-- Teclado dinámico -->
+        </div>
+        <button id="submit" onclick="checkAnswer()" style="display: none;">Enviar</button>
+        <div class="level" id="level">Nivel: 3</div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
