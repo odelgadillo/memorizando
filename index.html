@@ -104,8 +104,8 @@
 
         <main class="px-3">
             <div id="welcome" class="section active">
-                <h1>¡Bienvenido al Juego de Memorización de Letras!</h1>
-                <p>Demuestra tu habilidad para recordar letras.</p>
+                <h2>MEMOrizando</h1>
+                <p class="lead">Demuestra tu habilidad para recordar.</p>
                 <button class="btn btn-secondary" onclick="showSection('instructions')">Instrucciones</button>
                 <button class="btn btn-primary" onclick="startGame()">Iniciar Juego</button>
             </div>
@@ -118,6 +118,9 @@
                     <li class="list-group-item">Si aciertas, avanzarás al siguiente nivel, con una letra más para memorizar.</li>
                     <li class="list-group-item">Si fallas, el juego se reiniciará desde el nivel 3.</li>
                 </ul>
+                <p class="mt-4">
+                    ¡El cerebro es un musculo mas, necesita ejercitarse!
+                </p>
                 <button class="btn btn-secondary" onclick="showSection('welcome')">Volver</button>
             </div>
 
@@ -135,7 +138,7 @@
         </main>
 
         <footer class="mt-auto">
-            <p>Juego <span class="fw-semibold">Memorizando</span>, desarrollado por <a
+            <p>Desarrollado por <a
                     href="https://omardelgadillo.azurewebsites.net/" target="_blank"
                     class="text-decoration-none fw-semibold">Horacio D.</a>
             </p>
