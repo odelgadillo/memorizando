@@ -107,3 +107,8 @@ function checkAnswer() {
         startLevel();
     }
 }
+
+function restartGame() {
+    level = 3;
+    startLevel();
+}

@@ -142,13 +142,17 @@
                 <div class="keyboard" id="keyboard">
                     <!-- Teclado dinámico -->
                 </div>
-                
+
                 <div class="d-grid gap-2 mt-4">
-                    <button id="submit" class="btn btn-outline-primary" onclick="checkAnswer()"
-                    disabled>Enviar</button>
+                    <button id="submit" class="btn btn-outline-primary" onclick="checkAnswer()" disabled>Enviar</button>
                 </div>
 
                 <div class="level" id="level">Nivel: 3</div>
+                <div class="game-controls d-none">
+                    <button class="btn btn-sm btn-outline-secondary" onclick="restartGame()">Reiniciar</button>
+                    <button class="btn btn-sm btn-outline-secondary" onclick="showSection('welcome')">Inicio</button>
+                </div>
+
             </div>
         </main>
 
