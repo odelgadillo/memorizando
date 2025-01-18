@@ -32,6 +32,14 @@ function generateKeyboard() {
         key.onclick = () => handleKeyPress(letter);
         keyboard.appendChild(key);
     });
+
+    const deleteKey = document.createElement('div');
+    deleteKey.className = 'key delete-key';
+    deleteKey.classList.add('btn');
+    deleteKey.classList.add('btn-outline-danger');
+    deleteKey.textContent = '←';
+    deleteKey.onclick = handleDelete;
+    keyboard.appendChild(deleteKey);
 }
 
 function startLevel() {
@@ -39,6 +47,7 @@ function startLevel() {
     sequence = Array.from({ length: level }, () => String.fromCharCode(65 + Math.floor(Math.random() * 26)));
     levelDisplay.textContent = `Nivel: ${level}`;
     displaySequence();
+    updateSubmitButton();
 }
 
 function displaySequence() {
@@ -73,9 +82,19 @@ function handleKeyPress(letter) {
         gameBoxes.children[userInput.length].textContent = letter;
         userInput.push(letter);
     }
-    if (userInput.length === sequence.length) {
-        submitButton.style.display = 'block';
+    updateSubmitButton();
+}
+
+function handleDelete() {
+    if (userInput.length > 0) {
+        userInput.pop();
+        gameBoxes.children[userInput.length].textContent = '';
     }
+    updateSubmitButton();
+}
+
+function updateSubmitButton() {
+    submitButton.disabled = userInput.length !== sequence.length;
 }
 
 function checkAnswer() {
@@ -87,5 +106,4 @@ function checkAnswer() {
         level = 3;
         startLevel();
     }
-    submitButton.style.display = 'none';
 }
