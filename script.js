@@ -55,6 +55,7 @@ function displaySequence() {
     sequence.forEach(() => {
         const box = document.createElement('div');
         box.className = 'box';
+        box.classList.add('bg-body');
         gameBoxes.appendChild(box);
     });
 
@@ -70,6 +71,7 @@ function displaySequence() {
                 sequence.forEach(() => {
                     const box = document.createElement('div');
                     box.className = 'box';
+                    box.classList.add('bg-body');
                     gameBoxes.appendChild(box);
                 });
             }, 500);
