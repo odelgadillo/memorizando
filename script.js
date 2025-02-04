@@ -112,7 +112,15 @@ function updateSubmitButton() {
 }
 
 function checkAnswer() {
-    if (userInput.join('') === sequence.join('')) {
+    let errorFound = false;
+    for (let i = 0; i < sequence.length; i++) {
+        if (userInput[i] !== sequence[i]) {
+            gameBoxes.children[i].classList.add('shake'); // Animación de error
+            errorFound = true;
+        }
+    }
+
+    if (!errorFound) {
         level++;
         if (level > highScore) {
             highScore = level;
@@ -121,9 +129,11 @@ function checkAnswer() {
         }
         startLevel();
     } else {
-        alert('Fallaste. Reiniciando el juego...');
-        level = 3;
-        startLevel();
+        setTimeout(() => {
+            alert('Fallaste. Reiniciando el juego...');
+            level = 3;
+            startLevel();
+        }, 1000); // Espera un segundo para que se vea la animación
     }
 }
 
