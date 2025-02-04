@@ -3,10 +3,22 @@ const gameBoxes = document.getElementById('gameBoxes');
 const keyboard = document.getElementById('keyboard');
 const levelDisplay = document.getElementById('level');
 const submitButton = document.getElementById('submit');
+const highScoreDisplay = document.createElement('div'); // Nuevo elemento para el récord
+
+gameBoxes.parentElement.insertBefore(highScoreDisplay, gameBoxes); // Mostrar arriba del juego
 
 let level = 3;
 let sequence = [];
 let userInput = [];
+let highScore = localStorage.getItem('highScore') || 3; // Cargar récord guardado o iniciar en 3
+
+// Mostrar el récord
+function updateHighScoreDisplay() {
+    highScoreDisplay.textContent = `Récord: Nivel ${highScore}`;
+    highScoreDisplay.className = 'fw-bold text-primary';
+}
+
+updateHighScoreDisplay();
 
 function showSection(id) {
     sections.forEach(section => section.classList.remove('active'));
@@ -102,6 +114,11 @@ function updateSubmitButton() {
 function checkAnswer() {
     if (userInput.join('') === sequence.join('')) {
         level++;
+        if (level > highScore) {
+            highScore = level;
+            localStorage.setItem('highScore', highScore); // Guardar nuevo récord
+            updateHighScoreDisplay();
+        }
         startLevel();
     } else {
         alert('Fallaste. Reiniciando el juego...');
