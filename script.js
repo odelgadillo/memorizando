@@ -11,6 +11,8 @@ let level = 3;
 let sequence = [];
 let userInput = [];
 let highScore = localStorage.getItem('highScore') || 3; // Cargar récord guardado o iniciar en 3
+let isShowingSequence = false; // Indica si las letras están siendo mostradas
+
 
 // Mostrar el récord
 function updateHighScoreDisplay() {
@@ -75,6 +77,9 @@ function displaySequence() {
         gameBoxes.appendChild(box);
     });
 
+    // Deshabilitar el teclado durante la presentación de la secuencia
+    disableKeyboard(true);
+
     let index = 0;
     const interval = setInterval(() => {
         if (index < sequence.length) {
@@ -83,6 +88,7 @@ function displaySequence() {
         } else {
             clearInterval(interval);
             setTimeout(() => {
+                // Limpiar las letras y habilitar el teclado después de un breve retraso
                 gameBoxes.innerHTML = '';
                 sequence.forEach(() => {
                     const box = document.createElement('div');
@@ -94,9 +100,20 @@ function displaySequence() {
                     box.appendChild(letterSpan);
                     gameBoxes.appendChild(box);
                 });
+                disableKeyboard(false); // Habilitar el teclado después de mostrar la secuencia
             }, 500);
         }
     }, 500);
+}
+
+function disableKeyboard(disabled) {
+    isShowingSequence = disabled;
+
+    // Deshabilitar/habilitar el teclado virtual
+    Array.from(keyboard.children).forEach(key => {
+        key.classList.toggle('disabled', disabled);
+        key.style.pointerEvents = disabled ? 'none' : 'auto'; // Bloquear clics
+    });
 }
 
 function handleKeyPress(letter) {
@@ -172,6 +189,8 @@ function restartGame() {
 
 // Agregar event listener para el teclado físico
 document.addEventListener('keydown', (event) => {
+    if (isShowingSequence) return; // Ignorar pulsaciones mientras se muestra la secuencia
+    
     const key = event.key.toUpperCase(); // Convertir a mayúsculas
 
     // Verificar si la tecla es una letra válida (A-Z)
