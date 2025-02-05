@@ -66,15 +66,19 @@ function displaySequence() {
     gameBoxes.innerHTML = '';
     sequence.forEach(() => {
         const box = document.createElement('div');
-        box.className = 'box';
-        box.classList.add('bg-body');
+        box.className = 'box bg-body';
+        
+        const letterSpan = document.createElement('span');
+        letterSpan.className = 'letter';
+        
+        box.appendChild(letterSpan);
         gameBoxes.appendChild(box);
     });
 
     let index = 0;
     const interval = setInterval(() => {
         if (index < sequence.length) {
-            gameBoxes.children[index].textContent = sequence[index];
+            gameBoxes.children[index].querySelector('.letter').textContent = sequence[index];
             index++;
         } else {
             clearInterval(interval);
@@ -82,8 +86,12 @@ function displaySequence() {
                 gameBoxes.innerHTML = '';
                 sequence.forEach(() => {
                     const box = document.createElement('div');
-                    box.className = 'box';
-                    box.classList.add('bg-body');
+                    box.className = 'box bg-body';
+
+                     const letterSpan = document.createElement('span');
+                    letterSpan.className = 'letter';
+
+                    box.appendChild(letterSpan);
                     gameBoxes.appendChild(box);
                 });
             }, 500);
@@ -93,7 +101,7 @@ function displaySequence() {
 
 function handleKeyPress(letter) {
     if (userInput.length < sequence.length) {
-        gameBoxes.children[userInput.length].textContent = letter;
+        gameBoxes.children[userInput.length].querySelector('.letter').textContent = letter;
         userInput.push(letter);
     }
     updateSubmitButton();
@@ -102,7 +110,7 @@ function handleKeyPress(letter) {
 function handleDelete() {
     if (userInput.length > 0) {
         userInput.pop();
-        gameBoxes.children[userInput.length].textContent = '';
+        gameBoxes.children[userInput.length].querySelector('.letter').textContent = '';
     }
     updateSubmitButton();
 }
@@ -113,9 +121,14 @@ function updateSubmitButton() {
 
 function checkAnswer() {
     let errorFound = false;
+    const errors = [];
     for (let i = 0; i < sequence.length; i++) {
         if (userInput[i] !== sequence[i]) {
+            //const letterElement = gameBoxes.children[i].querySelector('.letter');
+            //letterElement.classList.add('shake'); // Animación de error
             gameBoxes.children[i].classList.add('shake'); // Animación de error
+
+            errors.push(i);
             errorFound = true;
         }
     }
@@ -130,10 +143,24 @@ function checkAnswer() {
         startLevel();
     } else {
         setTimeout(() => {
-            alert('Fallaste. Reiniciando el juego...');
-            level = 3;
-            startLevel();
-        }, 1000); // Espera un segundo para que se vea la animación
+            errors.forEach(index => {
+                const letterElement = gameBoxes.children[index].querySelector('.letter');
+                letterElement.classList.add('fade-out');
+
+                setTimeout(() => {
+                    letterElement.classList.remove('fade-out');
+                    letterElement.textContent = sequence[index]; // Mostrar la letra correcta
+                    letterElement.classList.add('fade-in');
+                }, 500);
+            });
+
+            setTimeout(() => {
+                alert('Fallaste. Reiniciando el juego...');
+                level = 3;
+                startLevel();
+            }, 2000); // Espera para que se vea la animación completa
+
+        }, 1000); // Tiempo para ver el primer efecto de vibración
     }
 }
 
