@@ -184,6 +184,12 @@ document.addEventListener('keydown', (event) => {
         // Simular un clic en la tecla virtual si existe
         if (virtualKey) {
             virtualKey.click();
+
+            // Agregar efecto visual temporal
+            virtualKey.classList.add('key-highlight');
+            setTimeout(() => {
+                virtualKey.classList.remove('key-highlight');
+            }, 200); // Duración del efecto: 200 ms
         }
     }
 
@@ -205,6 +211,12 @@ document.addEventListener('keydown', (event) => {
         // Simular un clic en la tecla "←" si existe
         if (deleteKey) {
             deleteKey.click();
+
+            // Agregar efecto visual temporal
+            deleteKey.classList.add('key-highlight-backspace');
+            setTimeout(() => {
+                deleteKey.classList.remove('key-highlight-backspace');
+            }, 200); // Duración del efecto: 200 ms
         }
     }
 });
