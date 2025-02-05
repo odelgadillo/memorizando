@@ -168,3 +168,43 @@ function restartGame() {
     level = 3;
     startLevel();
 }
+
+
+// Agregar event listener para el teclado físico
+document.addEventListener('keydown', (event) => {
+    const key = event.key.toUpperCase(); // Convertir a mayúsculas
+
+    // Verificar si la tecla es una letra válida (A-Z)
+    if (/^[A-Z]$/.test(key)) {
+        // Buscar la tecla correspondiente en el teclado virtual
+        const virtualKey = Array.from(keyboard.children).find(
+            (keyElement) => keyElement.textContent === key
+        );
+
+        // Simular un clic en la tecla virtual si existe
+        if (virtualKey) {
+            virtualKey.click();
+        }
+    }
+
+    // Verificar si la tecla es "Enter"
+    if (event.key === 'Enter') {
+        // Verificar si el botón "Enviar" está habilitado
+        if (!submitButton.disabled) {
+            submitButton.click();
+        }
+    }
+
+    // Verificar si la tecla es "Backspace" (Retroceso)
+    if (event.key === 'Backspace') {
+        // Buscar la tecla "←" en el teclado virtual
+        const deleteKey = Array.from(keyboard.children).find(
+            (keyElement) => keyElement.textContent === '←'
+        );
+
+        // Simular un clic en la tecla "←" si existe
+        if (deleteKey) {
+            deleteKey.click();
+        }
+    }
+});
