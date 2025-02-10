@@ -69,10 +69,10 @@ function displaySequence() {
     sequence.forEach(() => {
         const box = document.createElement('div');
         box.className = 'box bg-body';
-        
+
         const letterSpan = document.createElement('span');
         letterSpan.className = 'letter';
-        
+
         box.appendChild(letterSpan);
         gameBoxes.appendChild(box);
     });
@@ -94,7 +94,7 @@ function displaySequence() {
                     const box = document.createElement('div');
                     box.className = 'box bg-body';
 
-                     const letterSpan = document.createElement('span');
+                    const letterSpan = document.createElement('span');
                     letterSpan.className = 'letter';
 
                     box.appendChild(letterSpan);
@@ -141,8 +141,6 @@ function checkAnswer() {
     const errors = [];
     for (let i = 0; i < sequence.length; i++) {
         if (userInput[i] !== sequence[i]) {
-            //const letterElement = gameBoxes.children[i].querySelector('.letter');
-            //letterElement.classList.add('shake'); // Animación de error
             gameBoxes.children[i].classList.add('shake'); // Animación de error
 
             errors.push(i);
@@ -172,9 +170,16 @@ function checkAnswer() {
             });
 
             setTimeout(() => {
-                alert('Fallaste. Reiniciando el juego...');
-                level = 3;
-                startLevel();
+                // Usar SweetAlert en lugar de alert nativo
+                Swal.fire({
+                    title: '¡Fallaste!',
+                    text: 'Reiniciando el juego...',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    level = 3;
+                    startLevel();
+                });
             }, 2000); // Espera para que se vea la animación completa
 
         }, 1000); // Tiempo para ver el primer efecto de vibración
@@ -190,7 +195,7 @@ function restartGame() {
 // Agregar event listener para el teclado físico
 document.addEventListener('keydown', (event) => {
     if (isShowingSequence) return; // Ignorar pulsaciones mientras se muestra la secuencia
-    
+
     const key = event.key.toUpperCase(); // Convertir a mayúsculas
 
     // Verificar si la tecla es una letra válida (A-Z)
