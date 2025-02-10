@@ -154,7 +154,15 @@ function checkAnswer() {
             highScore = level;
             localStorage.setItem('highScore', highScore); // Guardar nuevo récord
             updateHighScoreDisplay();
+
+            // Mostrar confeti y mensaje de récord superado
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
         }
+
         startLevel();
     } else {
         setTimeout(() => {
