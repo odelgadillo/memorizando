@@ -178,16 +178,8 @@ function checkAnswer() {
             });
 
             setTimeout(() => {
-                // Usar SweetAlert en lugar de alert nativo
-                Swal.fire({
-                    title: '¡Fallaste!',
-                    text: 'Reiniciando el juego...',
-                    icon: 'error',
-                    confirmButtonText: 'OK'
-                }).then(() => {
-                    level = 3;
-                    startLevel();
-                });
+                level = 3;
+                startLevel();
             }, 2000); // Espera para que se vea la animación completa
 
         }, 1000); // Tiempo para ver el primer efecto de vibración
