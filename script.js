@@ -170,17 +170,19 @@ function checkAnswer() {
                 const letterElement = gameBoxes.children[index].querySelector('.letter');
                 letterElement.classList.add('fade-out');
 
+                // Mostrar la letras correctas después de un breve retraso
                 setTimeout(() => {
                     letterElement.classList.remove('fade-out');
-                    letterElement.textContent = sequence[index]; // Mostrar la letra correcta
+                    letterElement.textContent = sequence[index];
                     letterElement.classList.add('fade-in');
                 }, 500);
             });
 
+            // Reiniciar el juego después de mostrar las letras correctas
             setTimeout(() => {
                 level = 3;
                 startLevel();
-            }, 2000); // Espera para que se vea la animación completa
+            }, 2000);
 
         }, 1000); // Tiempo para ver el primer efecto de vibración
     }
