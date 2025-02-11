@@ -116,6 +116,9 @@
                 <h3 class="float-md-start mb-0">
                     <img src="assets/img/logo.svg" width="52" alt="Logo">
                 </h3>
+                <nav class="nav nav-masthead justify-content-center float-md-end">
+                    <a class="nav-link fw-bold py-1 px-0" href="#" onclick="showSection('settings')">Ajustes</a>
+                  </nav>
             </div>
         </header>
 
@@ -164,6 +167,15 @@
                 </div>
 
             </div>
+
+            <div id="settings" class="section">
+                <h2>Configuración</h2>
+                <div class="list-group">
+                    <button class="btn btn-danger" onclick="resetHighScore()">Borrar Récord Máximo</button>
+                </div>
+                <button class="btn btn-secondary mt-3" onclick="showSection('welcome')">Volver</button>
+            </div>
+
         </main>
 
         <footer class="mt-auto">

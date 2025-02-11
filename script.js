@@ -252,3 +252,30 @@ document.addEventListener('keydown', (event) => {
         }
     }
 });
+
+function resetHighScore() {
+    // Mostrar una alerta de confirmación antes de borrar el récord
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: 'Esta acción borrará tu récord máximo alcanzado.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, borrar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Borrar el récord del localStorage
+            localStorage.removeItem('highScore');
+            highScore = 3; // Reiniciar el récord a 3 (nivel inicial)
+            updateHighScoreDisplay(); // Actualizar la visualización del récord
+
+            // Mostrar una alerta de éxito
+            Swal.fire({
+                title: 'Récord borrado',
+                text: 'El récord máximo ha sido restablecido.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        }
+    });
+}
