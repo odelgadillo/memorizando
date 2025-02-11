@@ -279,3 +279,15 @@ function resetHighScore() {
         }
     });
 }
+
+function setTheme(theme) {
+    // Resaltar la opción seleccionada
+    const themeButtons = document.querySelectorAll('[data-bs-theme-value]');
+    themeButtons.forEach(button => {
+        if (button.getAttribute('data-bs-theme-value') === theme) {
+            button.classList.add('active');
+        } else {
+            button.classList.remove('active');
+        }
+    });
+}
