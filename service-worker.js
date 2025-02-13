@@ -1,4 +1,4 @@
-const CACHE_NAME = 'memoletras-v1';
+const CACHE_NAME = 'memoletras-v2';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',

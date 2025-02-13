@@ -286,14 +286,69 @@ function setTheme(theme) {
     });
 }
 
+// Registrar el Service Worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('service-worker.js')
-        .then((registration) => {
-          console.log('Service Worker registrado con éxito:', registration);
-        })
-        .catch((error) => {
-          console.log('Error al registrar el Service Worker:', error);
-        });
+        navigator.serviceWorker.register('service-worker.js')
+            .then((registration) => {
+                console.log('Service Worker registrado con éxito:', registration);
+            })
+            .catch((error) => {
+                console.log('Error al registrar el Service Worker:', error);
+            });
     });
-  }
+}
+
+let deferredPrompt; // Variable para almacenar el evento
+window.addEventListener('beforeinstallprompt', (event) => {
+
+    console.log('Evento beforeinstallprompt capturado');
+
+    // Evita que el navegador muestre el mensaje de instalación automáticamente
+    event.preventDefault();
+
+    // Almacena el evento para usarlo más tarde
+    deferredPrompt = event;
+
+    // Muestra un botón o mensaje para invitar al usuario a instalar la aplicación
+    mostrarBotonInstalacion();
+});
+
+function mostrarBotonInstalacion() {
+    const botonInstalar = document.createElement('button');
+    botonInstalar.textContent = 'Instalar la aplicación';
+    botonInstalar.className = 'btn btn-primary'; // Estilos de Bootstrap
+    botonInstalar.onclick = instalarAplicacion; // Función que maneja la instalación
+
+    // Agrega el botón a tu interfaz (por ejemplo, en el footer)
+    document.querySelector('footer').appendChild(botonInstalar);
+}
+
+function instalarAplicacion() {
+    if (deferredPrompt) {
+        // Muestra el mensaje de instalación
+        deferredPrompt.prompt();
+
+        // Espera a que el usuario responda
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('El usuario aceptó instalar la aplicación');
+            } else {
+                console.log('El usuario rechazó instalar la aplicación');
+            }
+
+            // Limpia la variable para evitar mostrar el mensaje de nuevo
+            deferredPrompt = null;
+        });
+    }
+}
+
+window.addEventListener('appinstalled', () => {
+    console.log('La aplicación fue instalada');
+
+    // Oculta el botón de instalación
+    const botonInstalar = document.querySelector('button[onclick="instalarAplicacion()"]');
+    if (botonInstalar) {
+        botonInstalar.style.display = 'none';
+    }
+});
